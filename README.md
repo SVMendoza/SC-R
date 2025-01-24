@@ -1,4 +1,5 @@
 SC-R: a supervised classification methodology
+
 Maps of land use, carbon levels, forest degradation, or pests damage are crucial for climate change adaptation and restoration strategies for territorial planning. These maps derived from earth observation data help both local farmers and governments make informed management decisions. However, they are often built using unbalanced data and/or pseudo-replicates (signatures), which can create problems related to the poor performance of supervised classification algorithms. 
 
 
@@ -23,10 +24,12 @@ Models are trained sequentially, ensuring that at each step, representative obse
 
 How does it work?
 
+**Usage**
+
 classiFunction(name.shape, file.img, name.CLASES, OPEN, SAVE, n.core, propVal, nsize=NULL, sel.n, ndt, dt.balance,=FALSE, Normalize=TRUE, selModel=c(), epochs=NULL, batch=NULL, gpu=NULL)
 
 
-**Argument**
+**Arguments**
 
 name.shape 	Name of the shapefile with the **.shp** extension. 
 
@@ -60,4 +63,9 @@ batch 		is NULL by default, and is only for adjusting a neural network.
 
 gpu 		is NULL by default. If you are running a neural network and have an NDVIA GPU, you can set it to TRUE. Otherwise, the network will be trained using the CPU.
 
+```plaintext
+# NOT RUN
+
+
+```
 
