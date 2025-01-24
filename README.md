@@ -67,34 +67,21 @@ gpu 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is NULL by default. If you are runni
 # NOT RUN
 
 rm(list=ls()): Removes all objects in the R environment.
- 
 gc(): Calls garbage collection to free memory.
 
-source.dir<-'/home/packages/' # Directory where the R scripts are located. Facilitates platform use. 
-
+source.dir<-'/home/packages/ClassificModels.R' # Directory where the R scripts are located. Facilitates platform use. 
 source(source.dir) 
 
 name.shape<-'clean.shp'
-
 file.img<-'mm.tif'
-
 OPEN<-'/home/classify/'
-
 name.CLASES<-'ley'
-
 SAVE<-'/home/classify/output/'
-
 n.core<-8
-
 propVal<-0.40
-
 nsize<-200
-
 ndt<-100 #nmodles only randomForest
-
 sel.n<-1
-
-source("/home/sergio/clasificacion/ClassificModels.R")
 
 classiFunction(name.shape, file.img, name.CLASES, OPEN, SAVE, 
                                 n.core, propVal, nsize, sel.n, ndt, 
