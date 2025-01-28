@@ -1,4 +1,4 @@
-SC-R: a supervised classification methodology
+## SC-R: a supervised classification methodology
 
 Maps of land use, carbon levels, forest degradation, or pests damage are crucial for climate change adaptation and restoration strategies for territorial planning. These maps derived from earth observation data help both local farmers and governments make informed management decisions. However, they are often built using unbalanced data and/or pseudo-replicates (signatures), which can create problems related to the poor performance of supervised classification algorithms. 
 
@@ -22,10 +22,9 @@ The pipeline offers an image preprocessing tool using convolution (a typical Dee
 How the pipeline works: The main approach is a model assembly method, where machine learning algorithms are trained separately using one or more randomly selected observations from each polygon. This process is repeated *n* times, generating multiple models, which allows for better generalization and helps avoid overfitting by introducing variability into the training dataset. The predictive power of each model is evaluated using cross-validation, with the observations that were not used in training (i.e., a model is trained and the unused data is used for validation). In the case of Random Forest, the top 10 models are selected and assembled into a single Random Forest.
 
 
-SC-R is structured in modules with a functional approach, which facilitates its development and allows for constant updating and improvement. At the moment, SC-R only supports data in Shapefile format with polygon geometry projected in the same way as the image to be classified.
+SC-R is a developed in **R** and is structured in modules using a functional approach. This structure facilitates its development and allows for constant updating and improvement. Currently, SC-R only supports data in Shapefile format, specifically with polygon geometry that is projected in the same way as the image to be classified.
 
-
-Functionality
+### Functionality
 
 A main function **classiFunction** is presented, allows the application of the model assembly methodology. The user must define some arguments. Along with additional functions that can be used separately or prior to using classiFunction.
 
