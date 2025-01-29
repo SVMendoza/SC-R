@@ -2,7 +2,7 @@
 
 Maps of land use, carbon levels, forest degradation, or pests damage are crucial for climate change adaptation and restoration strategies for territorial planning. These maps derived from earth observation data help both local farmers and governments make informed management decisions. However, they are often built using unbalanced data and/or pseudo-replicates (signatures), which can create problems related to the poor performance of supervised classification algorithms. 
 
-![myimage-alt-tag](../SVMendoza/SC-R/Process.png)
+![myimage-alt-tag](../SVMendoza/SC-R/blob/main/Process.png)
 (https://github.com/SVMendoza/SC-R/Process.png)
 
 
