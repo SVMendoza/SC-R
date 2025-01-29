@@ -2,8 +2,8 @@
 
 Maps of land use, carbon levels, forest degradation, or pests damage are crucial for climate change adaptation and restoration strategies for territorial planning. These maps derived from earth observation data help both local farmers and governments make informed management decisions. However, they are often built using unbalanced data and/or pseudo-replicates (signatures), which can create problems related to the poor performance of supervised classification algorithms. 
 
-![myimage-alt-tag](../SVMendoza/SC-R/blob/main/Process.png)
-(https://github.com/SVMendoza/SC-R/Process.png)
+![myimage](../SVMendoza/SC-R/blob/main/Process.png)
+
 
 
 SC-R is presented, a processing system designed to address supervised image classification problems from satellites or drones using machine learning techniques. SC-R integrates a set of strategies aimed at maximizing the performance of learning algorithms, considering the commonly used correlated data for training and computational limitations, with the goal of generating reliable results.
