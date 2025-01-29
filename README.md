@@ -2,7 +2,7 @@
 
 Maps of land use, carbon levels, forest degradation, or pests damage are crucial for climate change adaptation and restoration strategies for territorial planning. These maps derived from earth observation data help both local farmers and governments make informed management decisions. However, they are often built using unbalanced data and/or pseudo-replicates (signatures), which can create problems related to the poor performance of supervised classification algorithms. 
 
-![myimage-alt-tag](../master/SC-R/Process.png)
+![myimage-alt-tag](../SVMendoza/SC-R/Process.png)
 (https://github.com/SVMendoza/SC-R/Process.png)
 
 
@@ -76,6 +76,19 @@ epochs 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is NULL by default, and is only f
 batch 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is NULL by default, and is only for adjusting a neural network.
 
 gpu 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is NULL by default. If you are running a neural network and have an NDVIA GPU, you can set it to TRUE. Otherwise, the network will be trained using the CPU.
+
+
+# Required packages for modeling and data processing:
+
+```plaintext
+install.packages(c('randomForest', 'e1071', 'xgboost', 'data.table', 'future', , 'snow', 'terra', 'compiler'))
+
+# Package required for neural networks and convolution operations:
+# `torch` requires CUDA for GPU acceleration. Please make sure CUDA is installed and configured properly for GPU usage.
+install.packages('torch')
+```
+
+
 
 ```plaintext
 # NOT RUN
