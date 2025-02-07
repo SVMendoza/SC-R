@@ -15,11 +15,11 @@ SC-R allows the user to choose between training a single machine learning model 
 The hyperparameters of the different algorithms are fixed, allowing for optimization of computational time and facilitating the reproducibility of the models. However, it is possible that for certain datasets, the models may have poor performance and difficulty generalizing. This system is simple but efficient, allowing good results to be obtained even with small datasets and good computational efficiency. Model ensembling allows for the generation of a final consensus map that incorporates the best features of individual models and provides performance metrics based on a confusion matrix.
 
 
-The pipeline offers an image preprocessing tool using convolution (a typical Deep Learning process), using filters of 16, 32, 64, or 124 channels. If you choose convolution, it is recommended to apply a subsequent dimensionality reduction using Principal Component Analysis (PCA). This technique seeks to simplify the feature space, eliminate noise, and improve the computational efficiency of learning algorithms. If you decide to use a convolutional neural network (CNN), dimensionality reduction may not be advisable due to the high computational cost involved in using a CNN. In this case, PCA techniques could be applied to reduce the number of bands before image convolution. PCA could also be applied in the first stage of convolution if the user is training a deep network.
+The pipeline offers an image preprocessing tool (the algorithm is currently in a testing phase and its reliability is not yet established) using convolution (a typical Deep Learning process), using filters of 16, 32, 64, or 124 channels. If you choose convolution, it is recommended to apply a subsequent dimensionality reduction using Principal Component Analysis (PCA). This technique seeks to simplify the feature space, eliminate noise, and improve the computational efficiency of learning algorithms. If you decide to use a convolutional neural network (CNN), dimensionality reduction may not be advisable due to the high computational cost involved in using a CNN. In this case, PCA techniques could be applied to reduce the number of bands before image convolution. PCA could also be applied in the first stage of convolution if the user is training a deep network.
 
 
 
-How the pipeline works: The main approach is a model assembly method, where machine learning algorithms are trained separately using one or more randomly selected observations from each polygon. This process is repeated *n* times, generating multiple models, which allows for better generalization and helps avoid overfitting by introducing variability into the training dataset. The predictive power of each model is evaluated using cross-validation, with the observations that were not used in training (i.e., a model is trained and the unused data is used for validation). In the case of Random Forest, the top 10 models are selected and assembled into a single Random Forest.
+How the pipeline works: The main approach is a model assembly method, where machine learning algorithms are trained separately using one or more randomly selected observations from each polygon. This process is repeated *n* times, generating multiple models, which allows for better generalization and helps avoid overfitting by introducing variability into the training dataset. The predictive power of each model is evaluated using cross-validation, with the observations that were not used in training (i.e., a model is trained and the unused data is used for validation). In the case of Random Forest, the top 10 models are selected and assembled into a single Random Forest. SVM uses a subset of data to create an initial model and find optimal hyperparameters. This model is then further trained incrementally with the addition of new data.
 
 
 SC-R is a developed in **R** and is structured in modules using a functional approach. This structure facilitates its development and allows for constant updating and improvement. Currently, SC-R only supports data in Shapefile format, specifically with polygon geometry that is projected in the same way as the image to be classified.
@@ -28,6 +28,8 @@ SC-R is a developed in **R** and is structured in modules using a functional app
 
 A main function **classiFunction** is presented, allows the application of the model assembly methodology. The user must define some arguments. Along with additional functions that can be used separately or prior to using classiFunction.
 
+
+These functions are currently in beta testing and subject to change
 
 **PrinCompMap** &nbsp;&nbsp;&nbsp;Allows the application of dimensionality reduction analysis using principal components.
 
@@ -114,7 +116,9 @@ classiFunction(name.shape, file.img, name.CLASES, OPEN, SAVE,
                                 n.core, propVal, nsize, sel.n, ndt, 
                                 dt.balance=FALSE, Normalize=TRUE, 
                                 selModel= 'rf',
-                                epochs=NULL, batch=NULL)
+                                epochs=NULL, batch=NULL, 
+				block_size, out_channels, device, 
+				kernel_size, stride, padding)
 ```
 
 
